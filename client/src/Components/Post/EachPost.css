@@ -1,0 +1,198 @@
+.markdown-container h2 {
+    font-size: 40px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    line-height: 50px;
+    text-align: center;
+}
+.markdown-container h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 70px;
+    margin-bottom: 50px;
+
+    line-height: 60px;
+    text-align: center;
+}
+.markdown-container hr {
+    border: 1px solid gray;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+.markdown-container h3 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+.markdown-container h4 {
+    font-size: 26px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.markdown-container h5 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+.markdown-container p {
+    color: rgb(175, 175, 175);
+    margin-bottom: 12px;
+    font-size: 22px;
+    line-height: 40px;
+    text-align: justify;
+}
+
+.markdown-container ul {
+    color: rgb(175, 175, 175);
+    list-style-type: none; /* Remove default bullet points */
+    padding: 10px;
+    font-size: 22px;
+}
+
+.markdown-container ul li::before {
+    content: "*"; /* Set the content before each li element to '*' */
+    margin-right: 0.5em;
+
+    color: white;
+}
+
+.markdown-container ol {
+    list-style-type: none; /* Remove default numbering */
+    counter-reset: my-counter; /* Reset the counter for the ordered list */
+    padding: 0; /* Remove default padding for the ol element */
+    font-size: 22px;
+    color: rgb(175, 175, 175);
+}
+
+.markdown-container ol li {
+    counter-increment: my-counter; /* Increment the counter for each li element */
+    position: relative;
+    padding-left: 1.5em; /* Adjust the spacing between the numbering and the text */
+}
+
+.markdown-container ol li::before {
+    content: counter(my-counter) ". "; /* Set the content before each li element to the incremented number followed by a dot and a space */
+    margin-right: 0.5em; /* Adjust the spacing between the numbering and the text */
+    color: rgb(255, 255, 255);
+    position: absolute;
+    left: 0;
+}
+.markdown-container code {
+    visibility: hidden;
+    opacity: 0;
+}
+.markdown-container table,
+thead {
+    border: 1px solid rgb(255, 255, 255);
+    margin: 0 auto;
+    width: 50%;
+}
+
+.markdown-container th,
+td {
+    border: 1px solid white; /* Border color */
+    padding: 20px;
+    text-align: left;
+}
+
+.markdown-container a {
+    color: #3fffff;
+}
+
+.markdown-container blockquote {
+    color: blue;
+}
+.markdown-container img {
+    width: 80%;
+    object-fit: contain;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    background-color: #0f1012;
+}
+
+.imagepost {
+    position: relative;
+
+    margin-right: 1.4rem;
+    margin-bottom: 3rem;
+    cursor: pointer;
+    color: white;
+}
+.imagepost::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(252, 252, 252, 0) 0%,
+        rgb(0, 0, 0) 100%
+    );
+    height: 40%;
+}
+.image__text {
+    text-shadow: 2px 2px black;
+}
+
+.allPostCardBg {
+    background: radial-gradient(
+            99.16% 298.51% at 89.95% -121.39%,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0) 100%
+        )
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+}
+
+@media screen and (max-width: 640px) {
+    .markdown-container h1 {
+        font-size: 30px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    .markdown-container h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        line-height: 60px;
+        text-align: center;
+    }
+    .markdown-container p {
+        color: rgb(175, 175, 175);
+        margin-bottom: 6px;
+        font-size: 14px;
+        line-height: 25px;
+    }
+    .markdown-container ul {
+        color: rgb(175, 175, 175);
+        list-style-type: none; /* Remove default bullet points */
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .markdown-container ol {
+        color: rgb(175, 175, 175);
+        list-style-type: none; /* Remove default numbering */
+        counter-reset: my-counter; /* Reset the counter for the ordered list */
+        padding: 0; /* Remove default padding for the ol element */
+        font-size: 22px;
+    }
+
+    .markdown-container img {
+        width: 80%;
+        object-fit: contain;
+        height: 300px;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #0f1012;
+    }
+}

@@ -1,0 +1,34 @@
+.adminBg {
+    background-image: linear-gradient(
+        to right bottom,
+        #0a0a0a,
+        #14161a,
+        #171f27,
+        #162a33,
+        #12353d,
+        #10373d,
+        #0f3a3d,
+        #103c3c,
+        #103635,
+        #102f2f,
+        #0f2928,
+        #0e2322
+    );
+}
+.adminTableBg table {
+
+background: rgba(0, 0, 0, 0.39);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10.4px);
+-webkit-backdrop-filter: blur(10.4px);
+    padding: 10px;
+}
+.adminTableHead {
+/* From https://css.glass */
+background: rgba(0, 0, 0, 0.67);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10.4px);
+-webkit-backdrop-filter: blur(10.4px);
+}

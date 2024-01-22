@@ -1,0 +1,55 @@
+.carousel-scrollhide::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-scrollhide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* CustomCarousel.css */
+/* Add this to pause animation on hover */
+.carousel-container:hover {
+    animation-play-state: paused;
+}
+
+.horizontal-carousel {
+    overflow: hidden;
+    background-color: black;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container {
+    display: flex;
+    animation: scroll 320s linear infinite; /* Adjust the animation duration as needed */
+    white-space: nowrap;
+    width: fit-content;
+    cursor: default;
+}
+
+.carousel-track {
+    display: inline-flex;
+    gap: 40px; /* Adjust the gap between items */
+    flex-wrap: nowrap;
+}
+
+.carousel-item {
+    height: auto; /* Set the desired height */
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(1%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+    /* Add this to ensure continuous cycling */
+}
