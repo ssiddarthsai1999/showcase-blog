@@ -7,140 +7,9 @@
     background-color: blue !important;
 } */
 
-body {
-    color: white;
-    background-color: black;
-}
-@font-face {
-    font-family: "AkiraExpanded";
-    src: url("../src//Assets/fonts/AkiraESB/Akira\ Expanded\ Super\ Bold.ttf")
-        format("truetype");
-}
-
-@font-face {
-    font-family: "EurostileExtended";
-    src: url("../src//Assets//fonts//eurostile//eurostile.TTF")
-        format("truetype");
-}
-@font-face {
-    font-family: "EurostileExtendedBlack";
-    src: url("../src//Assets//fonts//eurostile/EurostileExtendedBlack.ttf")
-        format("truetype");
-}
-
-@font-face {
-    font-family: "SFPRODISPLAYREGULAR";
-    src: url("../src//Assets//fonts/sfprodisplay/SFPRODISPLAYREGULAR.OTF")
-        format("opentype");
-}
-@font-face {
-    font-family: "SFPRODISPLAYBOLD";
-    src: url("../src//Assets//fonts/sfprodisplay/SFPRODISPLAYBOLD.OTF")
-        format("opentype");
-}
-
-.homespan span {
-       font-family: "AkiraExpanded", sans-serif;
-    font-size: 22px;
- 
-    color: #3FFFFF;
-   	line-height: 1.25;
-
-}
-
-.subscribeButton {
-    background-color: #3fffff;
-    color: black;
-    font-size: 600;
-    gap: 6px;
-    align-items: center;
-    line-height: 19px;
-    font-family: "SFPRODISPLAYBOLD";
-    padding: 8px 20px;
-    display: flex;
-}
-
-h1 {
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 35.84px;
-    color: white;
-    font-family: "AkiraExpanded", sans-serif;
-    letter-spacing: -2.5%;
-}
-
-h2 {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30.32px;
-    color: white;
-        font-family: "AkiraExpanded", sans-serif;
-    letter-spacing: -4.5%;
-    size: 24px;
-
- 
-}
-h3 {
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 23.07px;
-    color: #ffffffc9;
-}
-h4 {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19.09px;
-    color: #ffffffc9;
-    font-family: "SFPRODISPLAYREGULAR",sans-serif;
-}
-h5 {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-color: white;
-    font-family: "roboto";
-}
-h6 {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 18px;
-    color: #ffffffde;
-    font-family: "eurostile", sans-serif;
-}
-p {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    color: #ffffffde;
-}
-.nftprojects {
-    color: black;
-    padding: 10px 20px;
-    border-radius: 2px;
-    font-weight: 700;
-    line-height: 16px;
-    letter-spacing: 1.5%;
-    font-family: "SFPRODISPLAYREGULAR",sans-serif;
-    background-color: #3fffff;
-    width: fit-content;
-    font-size: 14px;
-}
-
-.power span {
-    
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 18px;
-    color: #3fffff;
-
-    color: transparent;
-    -webkit-text-stroke: 0.5px #eb0936;
-}
-
 --select-bg {
     background: blue !important;
 }
-
 
 .rc-md-editor .editor-container .sec-md .input {
     background: black !important;
@@ -257,11 +126,18 @@ p {
 }
 
 .bgBlue {
-    background-image: url("../src/Assets/favicon/bgblue.png");
+    background-image: url("../src/Assets/staticassets//purple.jpg");
     background-position: center;
     background-repeat: no-repeat;
 
     background-size: cover;
+}
+
+
+/* Ensure that content inside .bgBlue is positioned above the overlay */
+.bgBlue * {
+    position: relative;
+    z-index: 2;
 }
 
 .footerBg {
@@ -280,12 +156,6 @@ p {
 }
 
 @media screen and (max-width: 640px) {
-    .homespan span {
-        font-size: 16px; /* Adjust the font size for smaller screens as needed */
-    }
-    h1 {
-        font-size: 14px;
-    }
     .notched-border::after {
         content: "";
         position: absolute;
@@ -301,10 +171,7 @@ p {
     }
 }
 
-
 @media screen and (max-width: 768px) {
-
-
     .notched-border::after {
         content: "";
         position: absolute;

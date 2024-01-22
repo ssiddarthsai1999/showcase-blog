@@ -48,14 +48,8 @@ export default function NewsLetter() {
 
     return (
         <div className="my-5 w-full justify-between p-2 md:p-24 flex md:flex-row flex-col bg-black items-center  bgBlue  ">
-            <div className="w-full md:w-1/2  homespan  ">
-                <span>// like what you see</span>
-                <h2
-                    className="mt-2 md:mt-5 font-[700] leading-[33px] text-[12px] md:text-[28px] mb-2  md:mb-7"
-                    style={{
-                        fontFamily: "EurostileExtended",
-                    }}
-                >
+            <div className="w-full md:w-1/2    ">
+                <h2 className="mt-2 md:mt-5 font-[700] text-white leading-[33px] text-[12px] md:text-[28px] mb-2  md:mb-7">
                     Keep up-to-date with weekly insights
                 </h2>
                 <div className="flex gap-4 mb-5   items-center align-middle">
@@ -80,25 +74,17 @@ export default function NewsLetter() {
                             </a> */}
                 </div>
             </div>
-            <div className="flex md:w-1/2  w-full  justify-end relative">
+            <div className="flex md:w-1/2 gap-3 w-full  justify-end relative">
                 <input
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    style={{
-                        background:
-                            " linear-gradient(0deg, #0F1012, #0F1012), linear-gradient(117.14deg, rgba(255, 255, 255, 0.4) -11.02%, rgba(255, 255, 255, 0) 119.05%)",
-                    }}
+          
                     type="email"
                     placeholder="Email"
-                    className="placeholder:text-[12px] rounded-none pl-5 p-2 text-[8px] md:text-[12px] w-full md:w-[400px] bg-[#0F1012] border border-solid border-[#FFFFFF66]"
+                    className=" placeholder:text-[12px] rounded-[24px] pl-5 p-2 text-[8px] md:text-[12px] w-full md:w-[400px] bg-transparent border border-solid border-[#4815df]"
                 />
 
-                <button className="  subscribeButton" onClick={handleSubscribe}>
-                    <img
-                        alt="send "
-                        className="md:w-[14px] w-[8px]"
-                        src={send}
-                    />{" "}
+                <button className="  button1" onClick={handleSubscribe}>
                     Subscribe
                 </button>
             </div>

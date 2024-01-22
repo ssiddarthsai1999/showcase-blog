@@ -30,34 +30,27 @@ import Home from "./Pages/Home/Home";
 import SideNavbar from "./Shared/SideNavbar";
 import AllPostss from "./Pages/Admin/AllPosts";
 import EditPost from "./Pages/Post/EditPost";
+import { CacheProvider } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
 import "../src/Pages/Admin/admin.css";
 import Footers from "./Components/Home/Footers/Footers";
 import Subscribers from "./Pages/Admin/Subscribers";
 import Analysis from "./Pages/Analysis/Analysis";
-
+import createCache from "@emotion/cache";
 import Tldr from "./Pages/Tldr/Tldr";
 import Register from "./Pages/Auth/Register";
 import VerifyEmail from "./Pages/Auth/VerifyEmail";
 import Profile from "./Pages/Profile/Profile";
 import { AuthUserRoute } from "./Middleware/AuthUserRoute";
 import ResetPassword from "./Pages/Auth/ResetPassword";
+import { toggleTheme } from "./Redux/Slices/themeSlice";
+import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 function App() {
     const dispatch = useDispatch();
-
+    const { mode } = useSelector((state) => state.theme);
     const profile = JSON.parse(localStorage.getItem("profile"));
     const user = profile?.user;
     const adminUser = profile?.user?.isVerified;
-    const customTheme = extendTheme({
-        styles: {
-            global: {
-                body: {
-                    bg: "#0F1012",
-                    color: "white",
-                },
-            },
-        },
-    });
 
     const handleSubscribe = async () => {
         Navigate("/#footer");
@@ -69,10 +62,11 @@ function App() {
         // Refresh the page when the user state changes
     }, [user]);
 
-    console.log("adminUser", adminUser);
+    console.log("mode", mode);
     const googleSecret = "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";
     return (
-        <ChakraProvider theme={customTheme}>
+        <div className={`${mode==="dark"? "dark-mode" : ""}`}>
+
             <ToastContainer />
             <Router>
                 <Routes>
@@ -162,7 +156,7 @@ function App() {
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>{" "}
-        </ChakraProvider>
+        </div>
     );
 }
 

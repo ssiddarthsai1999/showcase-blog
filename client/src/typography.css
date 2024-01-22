@@ -1,0 +1,238 @@
+/* typography.css */
+
+@font-face {
+    font-family: "Mona Sans";
+    src: url("./Assets//fonts//monasans/OTF/Mona-Sans-Black.otf")
+        format("opentype");
+    font-weight: 900;
+    font-stretch: 75% 125%;
+}
+@font-face {
+    font-family: "Mona Sans";
+    src: url("./Assets//fonts//monasans/OTF/Mona-Sans-ExtraBold.otf")
+        format("opentype");
+    font-weight: 800;
+    font-stretch: 75% 125%;
+}
+@font-face {
+    font-family: "Mona Sans";
+    src: url("./Assets//fonts//monasans/OTF/Mona-Sans-Bold.otf")
+        format("opentype");
+    font-weight: 700;
+    font-stretch: 75% 125%;
+}
+@font-face {
+    font-family: "Mona Sans";
+    src: url("./Assets//fonts//monasans/OTF/Mona-Sans-SemiBold.otf")
+        format("opentype");
+    font-weight: 600;
+    font-stretch: 75% 125%;
+}
+@font-face {
+    font-family: "Mona Sans";
+    src: url("./Assets//fonts//monasans/OTF/Mona-Sans-Medium.otf")
+        format("opentype");
+    font-weight: 500;
+    font-stretch: 75% 125%;
+}
+@font-face {
+    font-family: "Mona Sans";
+    src: url("./Assets//fonts//monasans/OTF/Mona-Sans-Regular.otf")
+        format("opentype");
+    font-weight: 400;
+    font-stretch: 75% 125%;
+}
+@font-face {
+    font-family: "Mona Sans";
+    src: url("./Assets//fonts//monasans/OTF/Mona-Sans-Light.otf")
+        format("opentype");
+    font-weight: 300;
+    font-stretch: 75% 125%;
+}
+
+:root {
+    /* Light theme colors */
+    --primary-text-color-light: #000000;
+    --secondary-text-color-light: #333333;
+    --background-color-light: #ffffff;
+    --secondary-background-color-light: #f0f0f0;
+    --border-color-light: #cccccc;
+    --purple-main-color: #4815df;
+
+    /* Dark theme colors */
+    --primary-text-color-dark: #ffffff;
+    --secondary-text-color-dark: #c2c2c2;
+    --background-color-dark: #000000;
+    --secondary-background-color-dark: #1e1e1e;
+    --border-color-dark: #333333;
+
+    /* Typography settings */
+    --font-family: "Mona Sans", "Helvetica", sans-serif;
+
+    --heading1-font-weight: 900;
+    --heading2-font-weight: 800;
+    --heading3-font-weight: 700;
+    --heading4-font-weight: 600;
+    --heading5-font-weight: 500;
+    --heading6-font-weight: 400;
+    --text-font-weight: 400;
+    --line-height: 1.6;
+    --letter-spacing: 0.5px;
+}
+/* Global styles */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+li,
+th,
+td,
+ul,
+ol {
+    /* Add other selectors as needed */
+    transition: 0.3s; /* Adjust duration and properties as needed */
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--primary-text-color-light);
+    background-color: var(--background-color-light);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+body .dark-mode {
+    color: var(--primary-text-color-dark);
+    background-color: var(--background-color-dark);
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: var(--heading1-font-weight);
+}
+h2 {
+    font-size: 2.25rem;
+    font-weight: var(--heading2-font-weight);
+}
+h3 {
+    font-size: 1.75rem;
+    font-weight: var(--heading3-font-weight);
+}
+h4 {
+    font-size: 1.5rem;
+    font-weight: var(--heading4-font-weight);
+}
+h5 {
+    font-size: 1.25rem;
+    font-weight: var(--heading5-font-weight);
+}
+h6 {
+    font-size: 1rem;
+    font-weight: var(--heading6-font-weight);
+}
+
+.button1 {
+    background-color: transparent;
+    border: 1px solid var(--purple-main-color);
+    padding: 12px 25px;
+    border-radius: 24px;
+    color: var(--purple-main-color);
+    transition: 0.3s ease-in;
+}
+.button1:hover {
+    background-color: var(--purple-main-color);
+    color: white;
+    border-radius: 10px;
+}
+
+/* Text elements */
+p,
+span,
+li {
+    color: var(--secondary-text-color-light);
+    font-weight: var(--text-font-weight);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+body.dark-mode th,
+body.dark-mode td {
+    border-bottom: 1px solid var(--border-color-dark);
+}
+
+/* Lists */
+ul,
+ol {
+    padding-left: 20px;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: var(
+        --primary-text-color-dark
+    ); /* Primary color for headings in dark mode */
+}
+
+body .dark-mode p,
+body .dark-mode span {
+    color: var(
+        --secondary-text-color-dark
+    ); /* Primary color for headings in dark mode */
+}
+
+body .dark-mode th,
+body .dark-mode td {
+    border-bottom: 1px solid var(--border-color-dark); /* Adjust table border color for dark mode */
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
+    h4 {
+        font-size: 1rem;
+    }
+    h5 {
+        font-size: 0.875rem;
+    }
+    h6 {
+        font-size: 0.75rem;
+    }
+}

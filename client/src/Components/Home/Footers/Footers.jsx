@@ -53,84 +53,98 @@ export default function Footers() {
     };
 
     return (
-        <div className="w-full p-3 md:p-10  flex bg-black items-center  footerBg ">
-            <div className="w-[90%] flex  md:flex-row flex-col mx-auto  justify-between ">
-                <div className=" ">
-                    <div
-                        className="  flex  cursor-pointer"
-                        onClick={scrollToTop}
-                    >
-                        <img src={x} alt="logo" />
-                        <img src={calibur} alt="logo" />
+        <footer className="  border-t border-[#4815df]">
+            <div className="max-w-6xl mx-auto px-4 py-10 md:py-20">
+                <div className="xl:grid xl:grid-cols-4 md:grid md:grid-cols-2">
+                    {/* Company Information */}
+                    <div className="mb-6 md:mb-0">
+                        <h5 className="uppercase font-bold mb-2.5">Company</h5>
+                        <p className="mb-4">123 Business Ave.</p>
+                        <p className="mb-4">Business City, 12345</p>
+                        <p className="mb-4">Email: contact@business.com</p>
+                        <p>Phone: (123) 456-7890</p>
                     </div>
-                    <div className="flex flex-col">
-                        <div className="flex gap-4 mt-4   items-center align-middle">
-                            {" "}
-                            <a href="https://www.byxcalibur.xyz">
-                                {" "}
-                                <img src={discord} alt="discord" />
+
+                    {/* Quick Links */}
+                    <div className="mb-6 md:mb-0">
+                        <h5 className="uppercase font-bold mb-2.5">
+                            Quick Links
+                        </h5>
+                        <ul className="space-y-2">
+                            <li>
+                                <a href="#" className="hover:underline">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="hover:underline">
+                                    Services
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="hover:underline">
+                                    FAQ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="hover:underline">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Social Media */}
+                    <div className="mb-6 md:mb-0">
+                        <h5 className="uppercase font-bold my-2.5">
+                            Follow Us
+                        </h5>
+                        <div className="flex space-x-4">
+                            <a href="#" aria-label="Facebook">
+                                <i className="fa-brands fa-facebook fa-lg text-[#4815df]"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter">
+                                <i className="fa-brands fa-twitter text-[#4815df] fa-lg"></i>
+                            </a>
+                            <a href="#" aria-label="Instagram">
+                                <i className="text-[#4815df]  fa-brands fa-instagram fa-lg"></i>
                             </a>
                             <a
-                                href="https://twitter.com/ByXcalibur"
-                                target="blank"
+                                href="#"
+                                aria-label="LinkedIn"
+                                className="hover:text-gray-400"
                             >
-                                {" "}
-                                <img src={twitter} alt="twitter" />
+                                {/* SVG or Image for LinkedIn */}
                             </a>
-                            <a
-                                href="https://www.instagram.com/byxcalibur/"
-                                target="blank"
-                            >
-                                <img src={instagram} alt="instagram" />
-                            </a>{" "}
-                            {/* <a href="">
-                                {" "}
-                                <img src={tiktok} alt="tiktok" />
-                            </a> */}
                         </div>
-
-                        <h4 className="mt-4 mb-1 text-[16px] flex leading-[19px] font-[400] items-center text-[#FFFFFF61]">
-                            <FontAwesomeIcon
-                                icon={faCopyright}
-                                className="text-[20px] bg-transparent"
-                            />
-                            <h4 className="ml-2  font-[400]   text-[#FFFFFF61] ">
-                                {" "}
-                                2023 ByXcalibur. All rights reserved.{" "}
-                            </h4>
-                        </h4>
                     </div>
-                </div>
 
-                <div className="flex flex-col  gap-4   justify-end mt-4 homespan    items-center">
-                    <span className=" leading-10 ">{`// get the latest scoop`}</span>
-                    <div className="flex  relative  w-full  mt-4 ">
-                        <input
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            style={{
-                                background:
-                                    "rounded-none  linear-gradient(0deg, #0F1012, #0F1012), linear-gradient(117.14deg, rgba(255, 255, 255, 0.4) -11.02%, rgba(255, 255, 255, 0) 119.05%)",
-                            }}
-                            type="email"
-                            placeholder="Email"
-                            className="placeholder:text-[12px] rounded-none  pl-5 p-2 text-[8px] md:text-[12px] w-full md:w-[400px] bg-[#0F1012] border border-solid border-[#FFFFFF66] "
-                        />
-
-                        <button
-                            className="  subscribeButton"
-                            onClick={handleSubscribe}
-                        >
-                            <img
-                                alt="send "
-                                className="md:w-[14px] w-[8px]"
-                                src={send}
-                            />{" "}
-                            Subscribe
-                        </button>
+                    {/* Newsletter */}
+                    <div className="mb-6 md:mb-0">
+                        <h5 className="uppercase font-bold mb-2.5">
+                            Newsletter
+                        </h5>
+                        <p className="mb-4">
+                            Subscribe to our newsletter for the latest updates.
+                        </p>
+                        <form>
+                            <input
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                type="email"
+                                placeholder="Email"
+                                className=" placeholder:text-[12px] py-4 rounded-[24px] pl-5 p-2 text-[8px] md:text-[12px] w-full md:w-[400px] bg-transparent border border-solid border-[#4815df]"
+                            />
+                            <button className="button1 mt-3 ">Subscribe</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+
+            {/* Copyright */}
+            <div className="text-center p-4 border-t border-[#4815df] mt-10">
+                © {new Date().getFullYear()} ITravelEverywhere. All Rights Reserved.
+            </div>
+        </footer>
     );
 }

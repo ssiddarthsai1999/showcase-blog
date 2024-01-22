@@ -156,9 +156,9 @@ function EachPostC() {
                 },
             });
             setActiveSort(sortState);
-            setFetchedData(commentsResponse.data.commentDetails);
-            setTotalPages(commentsResponse.data.commentDetails.totalPages);
-            setTotalResults(commentsResponse.data.commentDetails.totalComments);
+            setFetchedData(commentsResponse.data?.commentDetails);
+            setTotalPages(commentsResponse.data?.commentDetails.totalPages);
+            setTotalResults(commentsResponse.data?.commentDetails.totalComments);
             setIsLoading(false);
         };
 
