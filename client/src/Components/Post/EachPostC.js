@@ -25,8 +25,8 @@ import axios from "axios";
 import TopStories from "./TopStories";
 import CommentsS from "../../Shared/Comments/CommentsS";
 import { useSelector } from "react-redux";
-function EachPostC() {
-    const { route } = useParams();
+function EachPostC({ articleData }) {
+    const { title } = useParams();
     const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
@@ -34,7 +34,7 @@ function EachPostC() {
     const [isLikedList, setIsLikedList] = useState(null);
     const [shareUrl, setShareUrl] = useState("");
     const [body, setBody] = useState("");
-    const [title, setTitle] = useState("");
+
     const [idOfPost, setIdOfPost] = useState("");
     const [sortState, setSortState] = useState("recent");
 
@@ -51,6 +51,21 @@ function EachPostC() {
         underline: true,
         highlight: null,
     });
+
+    useEffect(() => {
+        // Filter the articleData array to find the article that matches the title in the params
+        const article = articleData.find((article) => article.title === title);
+
+        if (article) {
+            // If an article is found, update the `data` state
+            setData(article);
+            setBody(article.body); // Assuming the body of the article is in the `body` property
+            setShareUrl(window.location.href); // Update the share URL
+        } else {
+            // If no article is found, you can set the `data` state to null or handle it as you see fit
+            setData(null);
+        }
+    }, [articleData, title]); 
 
     const shareOnInstagram = () => {
         // Construct the Instagram share URL
@@ -117,53 +132,6 @@ function EachPostC() {
         }
     };
     console.log("userss", data);
-    useEffect(() => {
-        const isLikedByUser = data.likedList?.includes(user);
-        setIsLiked(isLikedByUser);
-    }, [data, user]);
-
-    useEffect(() => {
-        const getAllPostsAndComments = async () => {
-            setIsLoading(true);
-
-            // Fetch posts based on route
-            const postsResponse = await axios.get(
-                `${process.env.REACT_APP_API_ENDPOINT}/post/getEachPost/${route}`
-            );
-
-            // Set posts data
-            setShareUrl(window.location.href);
-            setBody(postsResponse.data.post.body);
-            setTitle(postsResponse.data.post.title);
-            setIdOfPost(postsResponse.data.post.id);
-            setData(postsResponse.data.post);
-
-            let url = `${process.env.REACT_APP_API_ENDPOINT}/commentPost/getCommentsForPost/${postsResponse.data.post.id}`;
-            let sortByParam = "createdAt";
-            let sortOrderParam = "desc";
-
-            if (sortState === "popular") {
-                // Set parameters for popular sorting
-                sortByParam = "viewsOnPost"; // Change this to the appropriate field
-                sortOrderParam = "desc"; // Change this to "asc" if needed
-            }
-            const commentsResponse = await axios.get(url, {
-                params: {
-                    page: currentPage || 1,
-                    limit: limit,
-                    sortBy: sortByParam,
-                    sortOrder: sortOrderParam,
-                },
-            });
-            setActiveSort(sortState);
-            setFetchedData(commentsResponse.data?.commentDetails);
-            setTotalPages(commentsResponse.data?.commentDetails.totalPages);
-            setTotalResults(commentsResponse.data?.commentDetails.totalComments);
-            setIsLoading(false);
-        };
-
-        getAllPostsAndComments();
-    }, [route, sortState,currentPage]);
 
     const handlePageClick = (e) => {
         const newPage = e.selected + 1;
@@ -172,12 +140,10 @@ function EachPostC() {
         );
     };
 
-
-
     const createdAtDate = new Date(data.createdAt);
 
     return (
-        <div className="flex   flex-col justify-center items-center align-middle bg-transparent mx-auto  w-full ">
+        <div className="flex   flex-col justify-center items-center align-middle bg-transparent mx-auto w-full  md:w-1/2 ">
             {isLoading ? (
                 <Stack direction="row" spacing={4}>
                     <Spinner size="xl" />
@@ -186,21 +152,12 @@ function EachPostC() {
                 <div className="w-full px-4 md:px-24  mx-auto md:mb-24">
                     <div className="relative mx-auto     ">
                         <img
-                            src={data.cover_photo}
+                            src={data.img}
                             alt="coverimage"
                             className="  md:h-[600px] h-[300px] mx-auto w-full object-cover  mb-4 md:mb-24 z-10  "
                         />
                         <div className="md:absolute bottom-0 z-30 px-2 md:px-24  left-0 ">
                             <div className="flex gap-5 align-middle items-center   mb-5">
-                                <h5
-                                    style={{
-                                        fontFamily:
-                                            '"AkiraExpanded", sans-serif',
-                                    }}
-                                    className=" nftprojects"
-                                >
-                                    NFT PROJECTS
-                                </h5>
                                 <h5
                                     className="image__text md:text-xl  text-md"
                                     style={{
@@ -214,60 +171,12 @@ function EachPostC() {
                                         day: "numeric",
                                     })}
                                 </h5>
-                                <div>
-                                    <h5
-                                        className="image__text md:text-xl  text-md"
-                                        style={{
-                                            fontFamily:
-                                                '"AkiraExpanded", sans-serif',
-                                        }}
-                                    >
-                                        <i className="fa-solid fa-heart mr-1"></i>
-                                        {data.likes}
-                                    </h5>
-                                </div>
-                                <div>
-                                    <h5
-                                        className="image__text md:text-xl  text-md"
-                                        style={{
-                                            fontFamily:
-                                                '"AkiraExpanded", sans-serif',
-                                        }}
-                                    >
-                                        <i className="fa-solid fa-comment mr-1"></i>
-                                        {fetchedData?.comments?.length}
-                                    </h5>
-                                </div>
                             </div>
                             <h1 className="image__text  font-bold md:text-[60px] md:mb-[40px]  md:leading-[80px] text-[20px]   leading-[20px] ">
                                 {data.title}
                             </h1>
                         </div>
                     </div>
-
-                    {/* <div className="flex justify-between items-center align-middle  mb-5">
-                        <h1 className="text-center font-semi-bold text-[20px] ">
-                            {data.caption}
-                        </h1>
-                    </div> */}
-
-                    {/* <div className="flex gap-4 mb-[100px]">
-                        {data.tags &&
-                            data.tags.map((item, index) => (
-                                <HStack spacing={4}>
-                                    <Tag
-                                        size={"lg"}
-                                        key={index}
-                                        borderRadius="full"
-                                        variant="solid"
-                                        paddingBottom="2px"
-                                        colorScheme="blue"
-                                    >
-                                        <TagLabel>#{item}</TagLabel>
-                                    </Tag>
-                                </HStack>
-                            ))}
-                    </div> */}
 
                     {data.body?.length > 0 && (
                         <ReactMarkdown
@@ -302,33 +211,6 @@ function EachPostC() {
                             </a>
                         </div>
                     </div>
-                    <div>
-                        <h1
-                            className="text-center pt-[100px] flex gap-2 justify-center cursor-pointer"
-                            onClick={() => handleLike(data.id)}
-                        >
-                            {isLiked ? (
-                                <i class="fa-solid fa-thumbs-up"></i>
-                            ) : (
-                                <i class="fa-regular fa-thumbs-up"></i>
-                            )}
-                            {data?.likes}
-                        </h1>
-                        <h3 className="text-center mt-4">
-                            {isLiked
-                                ? " You've liked this post"
-                                : " You've yet to like this post"}
-                        </h3>
-                    </div>
-                    <CommentsS
-                        idOfPost={idOfPost}
-                        currentPage={currentPage}
-                        fetchedData={fetchedData}
-                        setFetchedData={setFetchedData}
-                        handlePageClick={handlePageClick}
-                        totalPages={totalPages}
-                        totalResults={totalResults}
-                    />
                 </div>
             ) : (
                 <div className="text-center  mx-auto ">
@@ -338,7 +220,6 @@ function EachPostC() {
                     </h1>
                 </div>
             )}{" "}
-            <TopStories />
         </div>
     );
 }

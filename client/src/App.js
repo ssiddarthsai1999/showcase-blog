@@ -45,6 +45,8 @@ import { AuthUserRoute } from "./Middleware/AuthUserRoute";
 import ResetPassword from "./Pages/Auth/ResetPassword";
 import { toggleTheme } from "./Redux/Slices/themeSlice";
 import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import About from "./Pages/About/About";
+import Destinations from "./Pages/Destinations/Destinations";
 function App() {
     const dispatch = useDispatch();
     const { mode } = useSelector((state) => state.theme);
@@ -65,8 +67,7 @@ function App() {
     console.log("mode", mode);
     const googleSecret = "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";
     return (
-        <div className={`${mode==="dark"? "dark-mode" : ""}`}>
-
+        <div className={`${mode === "dark" ? "dark-mode" : ""}`}>
             <ToastContainer />
             <Router>
                 <Routes>
@@ -92,6 +93,7 @@ function App() {
                     >
                         {/*Auth......................*/}
                         <Route element={<Home />} path="/" />
+                        <Route element={<About />} path="/about" />
                         <Route element={<Login />} path="/login" />
                         <Route element={<Register />} path="/register" />
                         <Route
@@ -108,7 +110,11 @@ function App() {
                             element={<AllPosts />}
                             path="/projects/allposts"
                         />
-                        <Route element={<EachPost />} path="/projects/:route" />
+                        <Route
+                            element={<Destinations />}
+                            path="/destinations"
+                        />
+                        <Route element={<EachPost />} path="/destinations/:title" />
                         {/*Analysis and tldr......................*/}
                         <Route element={<Analysis />} path="/deck" />
                         <Route element={<Tldr />} path="/tldr" />

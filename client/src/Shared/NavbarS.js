@@ -110,7 +110,7 @@ function NavbarS({ handleSubscribe }) {
                                             About
                                         </h6>
                                     </Link>
-                                    <Link to="/explore">
+                                    <Link to={`/destinations`}>
                                         <h6 className="  ease-in duration-100 text-white">
                                             Explore
                                         </h6>
@@ -159,7 +159,7 @@ function NavbarS({ handleSubscribe }) {
                                 About
                             </h6>
                         </Link>
-                        <Link to="/explore">
+                        <Link to="/destinations">
                             <h6 className=" text-[12px] xl:text-[18px]  ease-in duration-100">
                                 Explore
                             </h6>

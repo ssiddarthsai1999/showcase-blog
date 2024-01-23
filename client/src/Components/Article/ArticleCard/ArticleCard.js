@@ -9,7 +9,7 @@ function ArticleCard({ articleData }) {
                     className="max-w-sm border border-[#4815df]/20  shadow-lg justify-between flex flex-col rounded-[24px] "
                     key={index}
                 >
-                    <Link to={`/projects/${item.title}`}>
+                    <Link to={`/destinations/${item.title}`}>
                         <img
                             className="w-full h-[300px] object-cover rounded-t-[24px] border-0 hover:scale-95 ease-in duration-100"
                             src={item.img}
@@ -34,9 +34,11 @@ function ArticleCard({ articleData }) {
                         </p>
                     </div>
                     <div className="px-6 py-4">
-                        <button className="  font-bold py-2 px-4 rounded w-full button1 cursor-pointer">
-                            Read Post
-                        </button>
+                        <Link to={`/destinations/${item.title}`}>
+                            <button className="  font-bold py-2 px-4 rounded w-full button1 cursor-pointer">
+                                Read Post
+                            </button>
+                        </Link>
                     </div>
                 </div>
             ))}
