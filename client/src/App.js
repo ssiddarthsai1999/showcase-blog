@@ -94,39 +94,42 @@ function App() {
                         {/*Auth......................*/}
                         <Route element={<Home />} path="/" />
                         <Route element={<About />} path="/about" />
-                        <Route element={<Login />} path="/login" />
+                        {/* <Route element={<Login />} path="/login" />
                         <Route element={<Register />} path="/register" />
                         <Route
                             path="/verifyEmail/:token"
                             element={<VerifyEmail />}
-                        />
+                        /> */}
 
-                        <Route
+                        {/* <Route
                             path="/reset-password/:resetToken"
                             element={<ResetPassword />}
-                        />
+                        /> */}
                         {/*Posts......................*/}
-                        <Route
+                        {/* <Route
                             element={<AllPosts />}
                             path="/projects/allposts"
-                        />
+                        /> */}
                         <Route
                             element={<Destinations />}
                             path="/destinations"
                         />
-                        <Route element={<EachPost />} path="/destinations/:title" />
-                        {/*Analysis and tldr......................*/}
-                        <Route element={<Analysis />} path="/deck" />
-                        <Route element={<Tldr />} path="/tldr" />
-                        {/*Profile......................*/}
                         <Route
+                            element={<EachPost />}
+                            path="/destinations/:title"
+                        />
+                        {/*Analysis and tldr......................*/}
+                        {/* <Route element={<Analysis />} path="/deck" />
+                        <Route element={<Tldr />} path="/tldr" /> */}
+                        {/*Profile......................*/}
+                        {/* <Route
                             element={<AuthUserRoute element={<Profile />} />}
                             path="/profile"
-                        />
+                        /> */}
                     </Route>
 
                     {/*Admin route......................*/}
-                    <Route
+                    {/* <Route
                         element={
                             <div className="scroll-smooth antialiased flex  ">
                                 {" "}
@@ -156,7 +159,7 @@ function App() {
                             element={<AdminRoute element={<Subscribers />} />}
                             path="/admin/subscribers"
                         />
-                    </Route>
+                    </Route> */}
 
                     {/*Error 404 not found......................*/}
                     <Route path="*" element={<NotFound />} />

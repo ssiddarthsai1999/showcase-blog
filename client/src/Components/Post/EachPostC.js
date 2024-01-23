@@ -65,7 +65,7 @@ function EachPostC({ articleData }) {
             // If no article is found, you can set the `data` state to null or handle it as you see fit
             setData(null);
         }
-    }, [articleData, title]); 
+    }, [articleData, title]);
 
     const shareOnInstagram = () => {
         // Construct the Instagram share URL
@@ -156,15 +156,9 @@ function EachPostC({ articleData }) {
                             alt="coverimage"
                             className="  md:h-[600px] h-[300px] mx-auto w-full object-cover  mb-4 md:mb-24 z-10  "
                         />
-                        <div className="md:absolute bottom-0 z-30 px-2 md:px-24  left-0 ">
+                        <div className="md:absolute bottom-0 z-30 px-2 md:px-24  left-0  markdown-container">
                             <div className="flex gap-5 align-middle items-center   mb-5">
-                                <h5
-                                    className="image__text md:text-xl  text-md"
-                                    style={{
-                                        fontFamily:
-                                            '"AkiraExpanded", sans-serif',
-                                    }}
-                                >
+                                <h5 className="image__text md:text-xl  text-md">
                                     {createdAtDate.toLocaleDateString("en-US", {
                                         year: "numeric",
                                         month: "short",
@@ -177,8 +171,18 @@ function EachPostC({ articleData }) {
                             </h1>
                         </div>
                     </div>
+                    <div>
+                        <div className="flex justify-between mb-10">
+                            <h5>By:{data.author}</h5>
+                            <h5>{data.country}</h5>
+                        </div>
+                        <p className="text-justify mb-10 ">{data.body}</p>
+                        <h2 className="mb-10">{data.title2}</h2>
+                        <img src={data.img2} className="mb-10" alt="img2 " />
+                        <p>{data.body2}</p>
+                    </div>
 
-                    {data.body?.length > 0 && (
+                    {/* {data.body?.length > 0 && (
                         <ReactMarkdown
                             className="gap-10 my-5 markdown-container px-2 sm:px-6 md:px-10 lg:[130px] xl:px-[200px]"
                             remarkPlugins={[
@@ -188,7 +192,7 @@ function EachPostC({ articleData }) {
                             ]}
                             children={body}
                         />
-                    )}
+                    )} */}
                     <div className="flex flex-col items-center align-middle   mx-auto top-[50%] w-fit right-[-20px] md:fixed gap-10 md:p-10">
                         <div className="flex  md:flex-col gap-4 mt-4     items-center align-middle z-50">
                             {" "}
@@ -197,17 +201,17 @@ function EachPostC({ articleData }) {
                             </h3>
                             <a href="">
                                 {" "}
-                                <img src={discord} alt="discord" />
+                                <i class="fa-brands fa-discord fa-lg"></i>
                             </a>
                             <TwitterShareButton url={shareUrl} title={title}>
-                                <img src={twitter} alt="twitter" />
+                                <i class="fa-brands fa-twitter fa-lg"></i>
                             </TwitterShareButton>
                             <a href="" onClick={shareOnInstagram}>
-                                <img src={instagram} alt="instagram" />
+                                <i class="fa-brands fa-square-instagram fa-lg"></i>
                             </a>{" "}
                             <a href="">
                                 {" "}
-                                <img src={tiktok} alt="tiktok" />
+                                <i class="fa-brands fa-tiktok fa-lg"></i>
                             </a>
                         </div>
                     </div>

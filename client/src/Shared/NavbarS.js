@@ -149,17 +149,26 @@ function NavbarS({ handleSubscribe }) {
                     </div>
                     {/* Conditionally render the navigation links for larger screens */}
                     <ul className="hidden lg:flex gap-4 font-bold text-[18px] align-middle items-center ">
-                        <Link to="/">
+                        <Link
+                            to="/"
+                            className=" border-transparent hover:text-[#4815df] hover:border-b hover:border-[#4815df]  duration-100 ease-in"
+                        >
                             <h6 className=" text-[12px] xl:text-[18px]  ease-in duration-100">
                                 Home
                             </h6>
                         </Link>
-                        <Link to="/about">
+                        <Link
+                            to="/about"
+                            className=" border-transparent hover:text-[#4815df] hover:border-b hover:border-[#4815df]  duration-100 ease-in"
+                        >
                             <h6 className=" text-[12px] xl:text-[18px]  ease-in duration-100">
                                 About
                             </h6>
                         </Link>
-                        <Link to="/destinations">
+                        <Link
+                            to="/destinations"
+                            className=" border-transparent hover:text-[#4815df] hover:border-b hover:border-[#4815df]  duration-100 ease-in"
+                        >
                             <h6 className=" text-[12px] xl:text-[18px]  ease-in duration-100">
                                 Explore
                             </h6>
@@ -167,9 +176,9 @@ function NavbarS({ handleSubscribe }) {
 
                         <button onClick={() => dispatch(toggleTheme())}>
                             {mode === "light" ? (
-                                <i class="fa-regular fa-moon"></i>
+                                <i className="fa-regular fa-moon hover:text-[#4815df] duration-100 ease-in"></i>
                             ) : (
-                                <i class="fa-regular fa-sun"></i>
+                                <i className="fa-regular fa-sun hover:text-[#4815df] duration-100 ease-in"></i>
                             )}
                         </button>
 

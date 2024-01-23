@@ -1,6 +1,7 @@
 import React from 'react'
 import "../../../typography.css"
 import newyork from "../../../Assets/staticassets/newyork.jpg"
+import { Link } from 'react-router-dom';
 
 function HeroC() {
   return (
@@ -11,8 +12,9 @@ function HeroC() {
                   Explore the World with Us - Your Passport to Unforgettable
                   Adventures!{" "}
               </p>
-
-              <button className="button1">Explore all</button>
+              <Link to="/destinations">
+                  <button className="button1 ">Explore all</button>
+              </Link>
           </div>
           <div className="   flex justify-center ">
               <img
