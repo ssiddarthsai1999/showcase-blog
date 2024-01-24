@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../Assets/aklogo.svg";
+
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import instagram from "../Assets/favicon/instagram.svg";
 import discord from "../Assets/favicon/discord.svg";
@@ -7,6 +7,7 @@ import twitter from "../Assets/favicon/twitter.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toggleTheme } from "../Redux/Slices/themeSlice";
 import search from "../../src/Assets/search.svg";
+import logo from "../../src/Assets/img/logo.png";
 import send from "../../src/Assets/send.svg";
 import calibur from "../../src/Assets/calibur.svg";
 import x from "../../src/Assets/x.svg";
@@ -77,14 +78,14 @@ function NavbarS({ handleSubscribe }) {
     console.log("user", user);
     return (
         <div
-            className={`w-full py-10 shadow-md ${
+            className={`w-full py-2 shadow-md ${
                 mode === "light" ? "bg-white" : "bg-black"
             } border-b border-[#4815df]`}
         >
             <div className="flex justify-between align-middle items-center md:px-24 px-6">
                 <Link to="/">
                     <div className="pl-5 flex cursor-pointer ">
-                        <h2 className="text-[#4815df]">ITravelEverywhere.</h2>
+                        <img src={logo} alt="logo" className="w-24" />
                     </div>
                 </Link>
                 <div className="pr-10">

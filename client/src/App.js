@@ -64,6 +64,20 @@ function App() {
         // Refresh the page when the user state changes
     }, [user]);
 
+    useEffect(() => {
+        // When app loads, check if a theme mode is saved in localStorage
+        const savedMode = localStorage.getItem("themeMode");
+        if (savedMode) {
+            // If found, dispatch an action to set the mode
+            dispatch(toggleTheme(savedMode));
+        }
+    }, [dispatch]);
+
+      useEffect(() => {
+          // Save the mode to localStorage whenever it changes
+          localStorage.setItem("themeMode", mode);
+      }, [mode]);
+
     console.log("mode", mode);
     const googleSecret = "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";
     return (

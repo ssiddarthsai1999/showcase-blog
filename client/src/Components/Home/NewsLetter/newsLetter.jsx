@@ -81,10 +81,10 @@ export default function NewsLetter() {
           
                     type="email"
                     placeholder="Email"
-                    className=" placeholder:text-[12px] rounded-[24px] pl-5 p-2 text-[8px] md:text-[12px] w-full md:w-[400px] bg-transparent border border-solid border-[#4815df]"
+                    className=" placeholder:text-[12px] placeholder:text-white text-white rounded-[24px] pl-5 p-2 text-[8px] md:text-[12px] w-full md:w-[400px] bg-transparent border border-solid border-[#4815df]"
                 />
 
-                <button className="  button1" onClick={handleSubscribe}>
+                <button className="  button1" >
                     Subscribe
                 </button>
             </div>

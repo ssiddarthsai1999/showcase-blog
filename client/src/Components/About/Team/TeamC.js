@@ -7,7 +7,7 @@ function TeamC() {
     const teamMembers = [
         {
             name: "Maria Smith",
-            position: "Frontend Developer",
+            position: "Videographer",
             imageUrl:
                 "https://images.squarespace-cdn.com/content/v1/5ec689480cc22c2d441e152f/860c688d-2c34-4d3f-b58c-23eed26a839b/corporate-headshots-professional-photography-connecticut-ct-photo-studio-dress.jpg",
             socialLinks: [
@@ -16,7 +16,7 @@ function TeamC() {
         },
         {
             name: "John Danger",
-            position: "UI/UX Designer",
+            position: "Content Creator",
             imageUrl:
                 "https://images.squarespace-cdn.com/content/v1/53b599ebe4b08a2784696956/1585161216625-SPEZ9Q48H4XWEAN47K1O/professional-headshots-nyc-043.jpg",
             socialLinks: [
@@ -25,7 +25,7 @@ function TeamC() {
         },
         {
             name: "Emily Brown",
-            position: "Backend Developer",
+            position: "Marketing",
             imageUrl:
                 "https://images.squarespace-cdn.com/content/v1/5fb99ae6fdeafc657921437f/c1682217-738f-4b55-b32d-b286ef9b7118/DSCF0551-Edit.jpg",
             socialLinks: [
